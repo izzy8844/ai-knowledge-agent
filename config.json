@@ -1,0 +1,42 @@
+{
+  "github_queries": [
+    "topic:mcp-server",
+    "\"model context protocol\" in:name,description",
+    "\"agent skill\" in:name,description",
+    "topic:ai-agent"
+  ],
+  "github_pages_per_query": 2,
+  "github_per_page": 100,
+  "github_min_stars": 100,
+  "github_discovery_queries": [
+    "topic:artificial-intelligence",
+    "text-to-sql in:name,description",
+    "\"data agent\" in:name,description"
+  ],
+  "github_discovery_per_query": 50,
+  "github_watchlist": ["morluto/rea"],
+  "arxiv_queries": ["all:\"text-to-SQL\"", "all:\"data agent\""],
+  "paper_search_queries": ["text-to-sql", "data agent"],
+  "arxiv_per_query": 25,
+  "paper_lookback_days": 45,
+  "hot_items": 15,
+  "usable_items": 10,
+  "data_project_items": 8,
+  "paper_items": 8,
+  "registry_page_size": 100,
+  "skills_per_view": 50,
+  "huggingface_limit": 80,
+  "producthunt_limit": 40,
+  "reddit_subreddits": ["LocalLLaMA", "ClaudeAI", "ChatGPTCoding", "selfhosted"],
+  "reddit_per_subreddit": 25,
+  "deployment_probe_limit": 12,
+  "lookback_days": 7,
+  "overlap_hours": 2,
+  "min_score": 3,
+  "max_report_items": 30,
+  "llm": {
+    "enabled": false,
+    "model": "gpt-5.5",
+    "max_items": 8
+  }
+}

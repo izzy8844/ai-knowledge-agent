@@ -1,0 +1,285 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 技术情报 · 2026-10-17</title><style>
+:root{--ink:#172534;--muted:#627180;--line:#dce6eb;--blue:#14639b;--sea:#0d7d75;--bg:#f4f8fa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+.hero{background:linear-gradient(115deg,#112a45,#145b76 65%,#1e897e);color:white;padding:58px max(24px,calc((100vw - 1160px)/2)) 52px}
+.eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:12px;opacity:.75;font-weight:700}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.1;letter-spacing:-.04em;margin:16px 0}.hero p{max-width:760px;opacity:.87;font-size:17px}
+.hero-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px}.hero-meta span{background:#ffffff22;padding:7px 13px;border:1px solid #ffffff30;border-radius:50px}
+main{max-width:1208px;margin:auto;padding:34px 24px 80px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:0 0 22px}
+.toolbar h2{margin:0;font-size:23px}select,input{border:1px solid var(--line);border-radius:10px;background:white;padding:10px 12px;color:var(--ink);font:inherit;max-width:100%}
+.filters{display:flex;gap:8px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 30px #1739540a;display:flex;flex-direction:column}.card[hidden]{display:none}
+.card-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.rank{font-size:19px;font-weight:800;color:var(--sea)}
+.source{text-transform:uppercase;letter-spacing:.08em}h3{font-size:21px;line-height:1.25;margin:14px 0 10px;word-break:break-word}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.intro{margin:0 0 16px;min-height:46px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin:auto 0 16px}.tags span{border-radius:50px;background:#eaf4f4;color:#145e62;padding:4px 9px;font-size:12px}
+.age{display:inline-block;color:var(--muted);font-size:12px;margin:-4px 0 12px}.age.stale{color:#9b591c;background:#fff4e7;border-radius:12px;padding:2px 8px;align-self:flex-start}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);padding-top:16px;gap:10px}
+.stats span{display:flex;flex-direction:column;min-width:0}.stats b{font-size:14px;overflow-wrap:anywhere}.stats small{font-size:11px;color:var(--muted)}
+details{border-top:1px solid var(--line);margin-top:15px;padding-top:12px;color:var(--muted);font-size:13px}summary{cursor:pointer;color:var(--blue)}
+.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:28px}.panel h2{font-size:19px;margin:0 0 12px}.panel ul{margin:0;padding-left:20px}.panel li{margin:7px 0}.signals li{display:flex;justify-content:space-between;gap:20px}.signals span{white-space:nowrap;color:var(--muted)}
+.note{color:var(--muted);font-size:13px;margin-top:26px}.lane{margin-top:42px}.lane-head{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;margin:0 0 18px}.lane-head h2{font-size:27px;margin:0}.lane-head p{color:var(--muted);margin:0}.compact .intro{min-height:0}.claim{border-left:3px solid var(--sea);background:#f0f8f5;padding:9px 12px;font-size:13px}.jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.jump a{background:#ffffff20;border:1px solid #ffffff4a;border-radius:20px;padding:7px 12px;color:white}.eyebrow-pill{font-size:12px;letter-spacing:.12em;color:var(--sea);font-weight:800}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.stats{gap:5px}.hero{padding:42px 24px}}
+</style></head><body><header class="hero"><div class="eyebrow">AI Agent · MCP · Skills Intelligence</div><h1>每日技术情报</h1>
+<p>看见热门 AI 项目，找到可以亲自使用的工具，追踪数据 Agent 与 Text-to-SQL 的新研究。</p>
+<div class="hero-meta"><span>2026-10-17</span><span>热门 15 项</span><span>可用工具 10 项</span><span>数据研究 16 项</span><span>GitHub ≥ 100 Stars</span></div>
+<nav class="jump"><a href="#hot">01 热门项目</a><a href="#usable">02 拿来用</a><a href="#data">03 数据 Agent 前沿</a></nav></header>
+<main><div class="toolbar"><h2>探索今日情报</h2><div class="filters"><input id="search" placeholder="搜索项目" aria-label="搜索项目">
+<select id="category" aria-label="按项目分类筛选"><option value="">全部类别</option><option value="Agent 增强与进化">Agent 增强与进化</option><option value="独立 Agent 与 AI 应用">独立 Agent 与 AI 应用</option><option value="AI 编程与代码质量">AI 编程与代码质量</option><option value="数据分析与产品">数据分析与产品</option><option value="创作与设计">创作与设计</option><option value="工作流自动化">工作流自动化</option><option value="模型与基础设施">模型与基础设施</option><option value="其他">其他</option></select>
+<select id="industry" aria-label="按行业筛选"><option value="">全部行业</option><option value="生活">生活</option><option value="数据产品">数据产品</option><option value="音乐">音乐</option><option value="自媒体">自媒体</option><option value="AI">AI</option><option value="游戏">游戏</option><option value="设计">设计</option><option value="开发者">开发者</option><option value="通用">通用</option></select></div></div>
+<section class="lane" id="hot"><div class="eyebrow-pill">01 / 看见趋势</div><div class="lane-head"><h2>热门 AI 项目在做什么</h2><p>近期采集项目按平台热度排列；不足时补充历史收录并标日期。Star 不等于质量或 30 天增长。</p></div><div class="grid" id="cards"><article class="card" data-category="独立 Agent 与 AI 应用" data-industry="AI">
+<div class="card-top"><span class="rank">01</span><span class="source">registry, github</span></div>
+<h3><a href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer">morluto/rea ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个独立 Agent 与 AI 应用项目，主要用于分析应用、网站或二进制程序的实现与行为。</p>
+<div class="tags"><span>独立 Agent 与 AI 应用</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 300,063</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>Reverse engineer anything with agents, from app behavior down to native binaries.</p><p>热度优先排序 · 推荐分 109.6 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="独立 Agent 与 AI 应用" data-industry="AI">
+<div class="card-top"><span class="rank">02</span><span class="source">github</span></div>
+<h3><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">NousResearch/hermes-agent ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个独立 Agent 与 AI 应用项目，主要用于检索资料并整理研究结果。</p>
+<div class="tags"><span>独立 Agent 与 AI 应用</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 254,569</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>The agent that grows with you</p><p>热度优先排序 · 推荐分 108.3 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="工作流自动化" data-industry="数据产品">
+<div class="card-top"><span class="rank">03</span><span class="source">github</span></div>
+<h3><a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer">n8n-io/n8n ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个工作流自动化项目，主要用于查询、分析或展示数据。</p>
+<div class="tags"><span>工作流自动化</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 207,776</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.</p><p>热度优先排序 · 推荐分 105.7 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="独立 Agent 与 AI 应用" data-industry="AI">
+<div class="card-top"><span class="rank">04</span><span class="source">github</span></div>
+<h3><a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener noreferrer">Significant-Gravitas/AutoGPT ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个独立 Agent 与 AI 应用项目，主要用于辅助视觉设计或界面制作。</p>
+<div class="tags"><span>独立 Agent 与 AI 应用</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 187,618</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p><p>热度优先排序 · 推荐分 105.9 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="模型与基础设施" data-industry="AI">
+<div class="card-top"><span class="rank">05</span><span class="source">github</span></div>
+<h3><a href="https://github.com/f/prompts.chat" target="_blank" rel="noopener noreferrer">f/prompts.chat ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个模型与基础设施项目；公开简介不足以确认具体功能，建议查看项目主页。</p>
+<div class="tags"><span>模型与基础设施</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 173,232</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.</p><p>热度优先排序 · 推荐分 100.3 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="独立 Agent 与 AI 应用" data-industry="AI">
+<div class="card-top"><span class="rank">06</span><span class="source">github</span></div>
+<h3><a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener noreferrer">google-gemini/gemini-cli ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个独立 Agent 与 AI 应用项目，主要用于把外部工具或数据接入 Agent。</p>
+<div class="tags"><span>独立 Agent 与 AI 应用</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 107,415</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>An open-source AI agent that brings the power of Gemini directly into your terminal.</p><p>热度优先排序 · 推荐分 101.6 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="模型与基础设施" data-industry="AI">
+<div class="card-top"><span class="rank">07</span><span class="source">github</span></div>
+<h3><a href="https://github.com/rasbt/LLMs-from-scratch" target="_blank" rel="noopener noreferrer">rasbt/LLMs-from-scratch ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个模型与基础设施项目；公开简介不足以确认具体功能，建议查看项目主页。</p>
+<div class="tags"><span>模型与基础设施</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 106,715</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>Implement a ChatGPT-like LLM in PyTorch from scratch, step by step</p><p>热度优先排序 · 推荐分 96.5 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="独立 Agent 与 AI 应用" data-industry="AI">
+<div class="card-top"><span class="rank">08</span><span class="source">github</span></div>
+<h3><a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer">thedotmack/claude-mem ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个独立 Agent 与 AI 应用项目，主要用于管理 Agent 的记忆、知识或上下文。</p>
+<div class="tags"><span>独立 Agent 与 AI 应用</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 101,313</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More</p><p>热度优先排序 · 推荐分 101.1 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="创作与设计" data-industry="自媒体">
+<div class="card-top"><span class="rank">09</span><span class="source">github</span></div>
+<h3><a href="https://github.com/hacksider/Deep-Live-Cam" target="_blank" rel="noopener noreferrer">hacksider/Deep-Live-Cam ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个创作与设计项目，主要用于辅助内容制作与发布。</p>
+<div class="tags"><span>创作与设计</span><span>自媒体</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 97,104</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>real time face swap and one-click video deepfake with only a single image</p><p>热度优先排序 · 推荐分 97.8 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="独立 Agent 与 AI 应用" data-industry="AI">
+<div class="card-top"><span class="rank">10</span><span class="source">github</span></div>
+<h3><a href="https://github.com/OpenHands/OpenHands" target="_blank" rel="noopener noreferrer">OpenHands/OpenHands ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个独立 Agent 与 AI 应用项目；公开简介不足以确认具体功能，建议查看项目主页。</p>
+<div class="tags"><span>独立 Agent 与 AI 应用</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 91,107</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>🙌 OpenHands: AI-Driven Development</p><p>热度优先排序 · 推荐分 100.3 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">11</span><span class="source">registry, github</span></div>
+<h3><a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener noreferrer">koala73/worldmonitor ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个数据分析与产品项目，主要用于查询、分析或展示数据。</p>
+<div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 88,594</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface</p><p>热度优先排序 · 推荐分 101.0 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="AI 编程与代码质量" data-industry="数据产品">
+<div class="card-top"><span class="rank">12</span><span class="source">github</span></div>
+<h3><a href="https://github.com/tt-a1i/archify" target="_blank" rel="noopener noreferrer">tt-a1i/archify ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个AI 编程与代码质量项目，主要用于规划任务并协助项目管理。</p>
+<div class="tags"><span>AI 编程与代码质量</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 84,684</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>Turn any idea, plan, or codebase into a beautiful interactive diagram. An agent skill for Claude Code, Codex, and more.</p><p>热度优先排序 · 推荐分 101.7 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="工作流自动化" data-industry="AI">
+<div class="card-top"><span class="rank">13</span><span class="source">github</span></div>
+<h3><a href="https://github.com/ruvnet/ruflo" target="_blank" rel="noopener noreferrer">ruvnet/ruflo ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个工作流自动化项目，主要用于管理 Agent 的记忆、知识或上下文。</p>
+<div class="tags"><span>工作流自动化</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 75,839</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated</p><p>热度优先排序 · 推荐分 94.8 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="AI 编程与代码质量" data-industry="AI">
+<div class="card-top"><span class="rank">14</span><span class="source">github</span></div>
+<h3><a href="https://github.com/career-ops-hq/career-ops" target="_blank" rel="noopener noreferrer">career-ops-hq/career-ops ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个AI 编程与代码质量项目，主要用于检索资料并整理研究结果。</p>
+<div class="tags"><span>AI 编程与代码质量</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 75,312</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and a job application tracker. It helps you fill in each application; you press Submit. Runs locally in your AI coding CLI (Claude Code, Codex, OpenCode and more).</p><p>热度优先排序 · 推荐分 97.8 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article><article class="card" data-category="其他" data-industry="AI">
+<div class="card-top"><span class="rank">15</span><span class="source">github</span></div>
+<h3><a href="https://github.com/microsoft/AI-For-Beginners" target="_blank" rel="noopener noreferrer">microsoft/AI-For-Beginners ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个其他项目；公开简介不足以确认具体功能，建议查看项目主页。</p>
+<div class="tags"><span>其他</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<div class="stats"><span><b>Stars 69,905</b><small>当前热度</small></span><span><b>数据积累中</b><small>近30天同指标增长</small></span><span><b>高关注</b><small>热度判断</small></span></div>
+        <details><summary>查看公开简介与评估依据</summary><p>12 Weeks, 24 Lessons, AI for All!</p><p>热度优先排序 · 推荐分 91.2 · 30天增长缺失时不会推算；运行反馈只抽查近期公开 Issue。</p></details>
+</article></div><div class="panel"><h3>新品与社区线索</h3><p>Product Hunt 的 RSS 提供新品线索，不提供投票数；有 API 令牌时可获取 Votes。</p><ul><li><a href="https://www.producthunt.com/products/korinotch" target="_blank" rel="noopener noreferrer">Korinotch</a> · 这是一个其他项目；公开简介不足以确认具体功能，建议查看项目主页。</li><li><a href="https://www.producthunt.com/products/salience" target="_blank" rel="noopener noreferrer">Salience</a> · 这是一个其他项目；公开简介不足以确认具体功能，建议查看项目主页。</li><li><a href="https://www.producthunt.com/products/draper" target="_blank" rel="noopener noreferrer">Draper</a> · 这是一个其他项目，主要用于规划任务并协助项目管理。</li><li><a href="https://www.producthunt.com/products/unfenced" target="_blank" rel="noopener noreferrer">Unfenced</a> · 这是一个其他项目；公开简介不足以确认具体功能，建议查看项目主页。</li><li><a href="https://www.producthunt.com/products/earnote" target="_blank" rel="noopener noreferrer">Earnote</a> · 这是一个其他项目；公开简介不足以确认具体功能，建议查看项目主页。</li><li><a href="https://www.producthunt.com/products/craft-agents" target="_blank" rel="noopener noreferrer">Craft Agents</a> · 这是一个其他项目，主要用于辅助视觉设计或界面制作。</li><li><a href="https://www.producthunt.com/products/ultracite" target="_blank" rel="noopener noreferrer">Ultracite v8</a> · 这是一个AI 编程与代码质量项目，主要用于检查和改进代码质量。</li><li><a href="https://www.producthunt.com/products/context-dev" target="_blank" rel="noopener noreferrer">GPU Terminal by Context.dev</a> · 这是一个其他项目，主要用于管理 Agent 的记忆、知识或上下文。</li></ul><ul class="signals"><li><a href="https://www.reddit.com/r/LocalLLaMA/comments/1x88zh6/holy_shit_what_happened_to_the_r9700_ai_pro_gpu/" target="_blank" rel="noopener noreferrer">Holy shit what happened to the r9700 ai pro gpu prices after nvidia killed the rtx 5090???</a><span>社区分数 0</span></li><li><a href="https://www.reddit.com/r/LocalLLaMA/comments/1x88txd/nvidia_has_officially_confirmed_that_the_5090_is/" target="_blank" rel="noopener noreferrer">Nvidia has officially confirmed that the 5090 is not discontinued and will continue shipping.</a><span>社区分数 0</span></li><li><a href="https://www.reddit.com/r/LocalLLaMA/comments/1x88fvj/qwen_flash_next_quant_and_temp_comparison/" target="_blank" rel="noopener noreferrer">Qwen Flash Next quant and temp comparison - performance vs task time vs quality</a><span>社区分数 0</span></li><li><a href="https://www.reddit.com/r/LocalLLaMA/comments/1x87kgj/model_add_kolibri1_alephalpha_support_by_riteme/" target="_blank" rel="noopener noreferrer">model : add Kolibri-1 (Aleph-Alpha) support by riteme · Pull Request #30673 · ggml-org/llama.cpp</a><span>社区分数 0</span></li><li><a href="https://www.reddit.com/r/LocalLLaMA/comments/1x86yor/strata_qwen_38_flash_next_boosting_decoding_speed/" target="_blank" rel="noopener noreferrer">Strata - Qwen 3.8 Flash Next - boosting decoding speed Tip</a><span>社区分数 0</span></li></ul></div></section>
+<section class="lane" id="usable"><div class="eyebrow-pill">02 / 亲自试试</div><div class="lane-head"><h2>哪些工具可以拿来用</h2><p>公开源码、Skill 安装入口或在线体验；运行反馈按可获得的证据标注。</p></div><div class="grid"><article class="card compact" data-category="独立 Agent 与 AI 应用" data-industry="AI">
+<div class="card-top"><span class="rank">01</span><span class="source">Stars 300,063</span></div>
+<h3><a href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer">morluto/rea ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个独立 Agent 与 AI 应用项目，主要用于分析应用、网站或二进制程序的实现与行为。</p><div class="tags"><span>独立 Agent 与 AI 应用</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>Reverse engineer anything with agents, from app behavior down to native binaries.</p></details></article><article class="card compact" data-category="独立 Agent 与 AI 应用" data-industry="AI">
+<div class="card-top"><span class="rank">02</span><span class="source">Stars 254,569</span></div>
+<h3><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">NousResearch/hermes-agent ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个独立 Agent 与 AI 应用项目，主要用于检索资料并整理研究结果。</p><div class="tags"><span>独立 Agent 与 AI 应用</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>The agent that grows with you</p></details></article><article class="card compact" data-category="工作流自动化" data-industry="数据产品">
+<div class="card-top"><span class="rank">03</span><span class="source">Stars 207,776</span></div>
+<h3><a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer">n8n-io/n8n ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个工作流自动化项目，主要用于查询、分析或展示数据。</p><div class="tags"><span>工作流自动化</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.</p></details></article><article class="card compact" data-category="独立 Agent 与 AI 应用" data-industry="AI">
+<div class="card-top"><span class="rank">04</span><span class="source">Stars 187,618</span></div>
+<h3><a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener noreferrer">Significant-Gravitas/AutoGPT ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个独立 Agent 与 AI 应用项目，主要用于辅助视觉设计或界面制作。</p><div class="tags"><span>独立 Agent 与 AI 应用</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p></details></article><article class="card compact" data-category="创作与设计" data-industry="自媒体">
+<div class="card-top"><span class="rank">05</span><span class="source">Stars 97,104</span></div>
+<h3><a href="https://github.com/hacksider/Deep-Live-Cam" target="_blank" rel="noopener noreferrer">hacksider/Deep-Live-Cam ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个创作与设计项目，主要用于辅助内容制作与发布。</p><div class="tags"><span>创作与设计</span><span>自媒体</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>real time face swap and one-click video deepfake with only a single image</p></details></article><article class="card compact" data-category="AI 编程与代码质量" data-industry="数据产品">
+<div class="card-top"><span class="rank">06</span><span class="source">Stars 84,684</span></div>
+<h3><a href="https://github.com/tt-a1i/archify" target="_blank" rel="noopener noreferrer">tt-a1i/archify ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个AI 编程与代码质量项目，主要用于规划任务并协助项目管理。</p><div class="tags"><span>AI 编程与代码质量</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>Turn any idea, plan, or codebase into a beautiful interactive diagram. An agent skill for Claude Code, Codex, and more.</p></details></article><article class="card compact" data-category="工作流自动化" data-industry="AI">
+<div class="card-top"><span class="rank">07</span><span class="source">Stars 75,839</span></div>
+<h3><a href="https://github.com/ruvnet/ruflo" target="_blank" rel="noopener noreferrer">ruvnet/ruflo ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个工作流自动化项目，主要用于管理 Agent 的记忆、知识或上下文。</p><div class="tags"><span>工作流自动化</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated</p></details></article><article class="card compact" data-category="AI 编程与代码质量" data-industry="AI">
+<div class="card-top"><span class="rank">08</span><span class="source">Stars 75,312</span></div>
+<h3><a href="https://github.com/career-ops-hq/career-ops" target="_blank" rel="noopener noreferrer">career-ops-hq/career-ops ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个AI 编程与代码质量项目，主要用于检索资料并整理研究结果。</p><div class="tags"><span>AI 编程与代码质量</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and a job application tracker. It helps you fill in each application; you press Submit. Runs locally in your AI coding CLI (Claude Code, Codex, OpenCode and more).</p></details></article><article class="card compact" data-category="AI 编程与代码质量" data-industry="AI">
+<div class="card-top"><span class="rank">09</span><span class="source">Stars 69,120</span></div>
+<h3><a href="https://github.com/usestrix/strix" target="_blank" rel="noopener noreferrer">usestrix/strix ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个AI 编程与代码质量项目，主要用于检查和改进代码质量。</p><div class="tags"><span>AI 编程与代码质量</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="生活">
+<div class="card-top"><span class="rank">10</span><span class="source">Stars 66,540</span></div>
+<h3><a href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noopener noreferrer">ZhuLinsen/daily_stock_analysis ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个数据分析与产品项目，主要用于查询、分析或展示数据。</p><div class="tags"><span>数据分析与产品</span><span>生活</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。  LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.</p></details></article></div></section>
+<section class="lane" id="data"><div class="eyebrow-pill">03 / 研究与产品</div><div class="lane-head"><h2>数据 Agent 与企业分析前沿</h2><p>单独保留项目和论文席位，避免被通用热门项目挤掉。</p></div><h3>新工具与开源项目</h3><div class="grid"><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">01</span><span class="source">Stars 57,592</span></div>
+<h3><a href="https://github.com/zylon-ai/private-gpt" target="_blank" rel="noopener noreferrer">zylon-ai/private-gpt ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个数据分析与产品项目，主要用于把自然语言问题转换为 SQL 查询。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>Complete API layer for private AI applications on local models: RAG, skills, tools, MCP, text-to-sql, and more. Works with any OpenAI-compatible inference server.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">02</span><span class="source">Stars 23,818</span></div>
+<h3><a href="https://github.com/vanna-ai/vanna" target="_blank" rel="noopener noreferrer">vanna-ai/vanna ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个数据分析与产品项目，主要用于把自然语言问题转换为 SQL 查询。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>🤖 Chat with your SQL database 📊. Accurate Text-to-SQL Generation via LLMs using Agentic Retrieval 🔄.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">03</span><span class="source">Stars 17,883</span></div>
+<h3><a href="https://github.com/Canner/WrenAI" target="_blank" rel="noopener noreferrer">Canner/WrenAI ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个数据分析与产品项目，主要用于把自然语言问题转换为 SQL 查询。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>GenBI (Generative BI) for AI agents, an open-source, governed text-to-SQL through an open context layer that turns natural-language questions into trusted dashboards, charts, and SQL across 20+ data sources, such as BigQuery, Snowflake, PostgreSQL, ClickHouse, Amazon Redshift, Databricks and more.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">04</span><span class="source">Stars 9,468</span></div>
+<h3><a href="https://github.com/databendlabs/databend" target="_blank" rel="noopener noreferrer">databendlabs/databend ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个数据分析与产品项目，主要用于让 Agent 查询和分析企业数据。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>Data Agent Ready Warehouse : One for  Analytics, Search, AI, Python Sandbox.  — rebuilt from scratch. Unified architecture on your S3.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">05</span><span class="source">Stars 6,920</span></div>
+<h3><a href="https://github.com/dataease/SQLBot" target="_blank" rel="noopener noreferrer">dataease/SQLBot ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个数据分析与产品项目，主要用于把自然语言问题转换为 SQL 查询。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>🔥 基于大模型和 RAG 的智能问数系统，对话式数据分析神器。Text-to-SQL Generation via LLMs using RAG.</p></details></article><article class="card compact" data-category="创作与设计" data-industry="数据产品">
+<div class="card-top"><span class="rank">06</span><span class="source">Stars 6,120</span></div>
+<h3><a href="https://github.com/netease-youdao/LobsterAI" target="_blank" rel="noopener noreferrer">netease-youdao/LobsterAI ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个创作与设计项目，主要用于辅助内容制作与发布。</p><div class="tags"><span>创作与设计</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>Open-source, desktop-grade AI agent that gets real work done — data analysis, slides, docs, video &amp; web research. Built on OpenClaw; runs tools on your real desktop and takes commands from your phone via WeChat, Feishu, DingTalk &amp; Telegram.</p></details></article><article class="card compact" data-category="其他" data-industry="AI">
+<div class="card-top"><span class="rank">07</span><span class="source">Stars 2,757</span></div>
+<h3><a href="https://github.com/spring-ai-alibaba/DataAgent" target="_blank" rel="noopener noreferrer">spring-ai-alibaba/DataAgent ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个其他项目，主要用于让 Agent 查询和分析企业数据。</p><div class="tags"><span>其他</span><span>AI</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>Spring AI Alibaba DataAgent</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">08</span><span class="source">Stars 2,270</span></div>
+<h3><a href="https://github.com/agno-agi/dash" target="_blank" rel="noopener noreferrer">agno-agi/dash ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">这是一个数据分析与产品项目，主要用于把自然语言问题转换为 SQL 查询。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>代码公开 · 反馈待核查</span></div>
+<details><summary>查看项目原始简介</summary><p>A self-learning data agent built with systems engineering principles. It grounds answers in 6 layers of context and improves with every query.</p></details></article></div><h3>近期论文与评测线索</h3><p class="note">“效果更好”只在论文或公开评测给出可核对的基线、数据集和指标时成立；以下摘要不自动认定突破。可对照 <a href="https://bird-bench.github.io/" target="_blank" rel="noopener noreferrer">BIRD</a> 与 <a href="https://spider2-sql.github.io/" target="_blank" rel="noopener noreferrer">Spider 2.0</a> 的任务定义。</p><div class="grid"><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">01</span><span class="source">论文 · 2026-10-15</span></div>
+<h3><a href="https://arxiv.org/abs/2610.22158v1" target="_blank" rel="noopener noreferrer">PremiseSQL: Evaluating Premise Critique and Abstention in Text-to-SQL Systems ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">研究主题：自然语言转 SQL。效果提升来自作者摘要，需核对基线、数据集与实验设置。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>Shuo Lin、Jinzhe Li、Chenlu Guo、Yanhan Li、Yuan Wu、Yi Chang</span></div>
+<details><summary>查看论文摘要与作者</summary><p>Recent advances in large language models (LLMs) have substantially improved Text-to-SQL performance, yet existing NL2SQL systems largely assume that user queries are valid and answerable. As a result, models often generate executable SQL even for queries with flawed premises. We introduce premise critique ability in NL2SQL, namely the ability to recognize flawed queries and abstain from generating misleading SQL. To evaluate this capability, we propose PremiseSQL, a benchmark containing 1,800 flawed NL2SQL queries across four categories of premise failures, along with their 1,800 original queries. We further design an evaluation framework to measure intrinsic and prompt-induced premise-aware behavior across three prompting settings. Experiments on frontier LLMs show that current models are strongly premise-trusting by default and rarely critique flawed premises. Stronger critique-oriented prompting improves detection and abstention on flawed queries, but also increases false invalid judgments and suppresses SQL generation on originals. The code is available at https://github.com/vegeet/PremiseSQL.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">02</span><span class="source">论文 · 2026-10-14</span></div>
+<h3><a href="https://arxiv.org/abs/2610.20959v1" target="_blank" rel="noopener noreferrer">Same Context, Different Agents: A Behavioral Study of Semantic Layers, Orchestration and Compaction in Data Agents ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">研究主题：数据 Agent 与企业数据分析。效果提升来自作者摘要，需核对基线、数据集与实验设置。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>Zhivar Sourati、Marianne Menglin Liu、Zheng Wang、Rongguang Wang、Sai Ashish Somayajula、Tao Sheng、Kyu J. Han、Sujith Ravi、Dan Roth</span></div>
+<details><summary>查看论文摘要与作者</summary><p>Answering questions over heterogeneous data means combining evidence from files, databases, documents and the web. Data agents automate this, but their success depends on context. Three context-engineering techniques (CETs) help by shaping it: semantic layers describe the data, orchestration splits work among agents, and compaction condenses interaction history. Existing studies validate each CET alone, leaving open how agent behavior shapes its effect. We present a comprehensive analysis of the three CETs, alone and combined, with seven large language models (LLMs) on 1,514 long-horizon tasks from five benchmarks, covering behavior, accuracy and cost. We find that data agents without CETs form three behavior groups: investigators, premature answerers that answer without inspecting data, and early stoppers that give up. Each CET delivers its known benefit, from more investigation to smaller prompts, but only the behavior group it matches turns that benefit into accuracy, such as premature answerers under orchestration. For investigators, the same CETs can hurt: the semantic layer stops them from looking, orchestration makes them overconfident, costing 5 percentage points, and compaction makes them repeat steps. Combining CETs yields smaller gains and losses than their sum. We derive guidance for choosing CETs by agent behavior, task demands and accuracy-cost trade-offs.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">03</span><span class="source">论文 · 2026-10-12</span></div>
+<h3><a href="https://arxiv.org/abs/2610.17493v1" target="_blank" rel="noopener noreferrer">VeriPIE: Checkable Query Plans and Evidence-Guided Selection for Text-to-SQL ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">研究主题：自然语言转 SQL，摘要提到 BIRD、Spider 评测。效果提升来自作者摘要，需核对基线、数据集与实验设置。</p><p class="claim">作者报告：VeriPIE 在Spider 开发集的测试套件准确率为 72.05%，对比 DeepEye 的 65.67%。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>Piyush Jha、Cruise Song、Zhengyu Li、Yatharth Sejpal</span></div>
+<details><summary>查看论文摘要与作者</summary><p>Financial Artificial Intelligence (AI) governance and model risk management (MRM) emphasize independent validation, transparency, and effective challenge of AI-generated computations. Text-to-SQL translates natural-language questions into Structured Query Language (SQL), but queries that agree on one database can still express different computations. We present VeriPIE, a neurosymbolic framework combining language-model generation with symbolic checks. It ensembles direct SQL generation with QuerySketch, a structured plan language checked by a backend implemented in Lean, a theorem prover and programming language. Plan diagnostics guide repair before SQL generation, while execution agreement and bounded searches for distinguishing databases inform candidate selection. These checks expose malformed plans and hidden disagreement without proving agreement with the user&#x27;s intent. In single-run experiments on the complete Spider development set, VeriPIE achieves 72.05% test-suite accuracy (745/1,034), compared with DeepEye&#x27;s 65.67% (679/1,034). Its two-query shortlist covers 78.43% (811 questions), compared with 74.66% for DIN-SQL (772) and 69.05% for DeepEye (714). On BIRD, VeriPIE reaches 68.90% execution accuracy and 73.73% two-query coverage. The central benefit is reviewable evidence about the generated computation: explicit plan checks, repair diagnostics, and concrete disagreements that support safer financial analysis.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">04</span><span class="source">论文 · 2026-10-12</span></div>
+<h3><a href="https://arxiv.org/abs/2610.17305v1" target="_blank" rel="noopener noreferrer">Reliable Text-to-SQL in Resource-Constrained Settings with Small LLMs via Iterative Retry Workflows ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">研究主题：自然语言转 SQL，摘要提到 Spider 评测。效果提升来自作者摘要，需核对基线、数据集与实验设置。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>Bilel Abderrahmane Benziane、Xavier Schepler</span></div>
+<details><summary>查看论文摘要与作者</summary><p>Large Language Models (LLMs) have recently improved Text-to-SQL generation, but their computational cost can hinder deployment in resource-constrained settings. This paper evaluates the Text-to-SQL capabilities of small and medium open-source LLMs (1B-8B parameters) under a controlled inference budget, focusing on how model specialization and prompt formulation affect performance. Using the Spider benchmark, we compare multiple prompt representations and assess the accuracy of generated queries. Our results show that SQL-specialized models are consistently more reliable than general-purpose and chat-oriented models at small scales, and that performance can vary substantially depending on the prompt used. To reduce this variability without resorting to larger models, we introduce three lightweight inference workflows that automatically retry with alternative prompts and/or models when failures occur, including an optional syntax-correction step. These workflows significantly improve end-to-end success rates, with a trade-off in additional inference calls. These results demonstrate a practical path to stronger Text-to-SQL performance with small LLMs, by trading modest additional inference cost for higher reliability.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">05</span><span class="source">论文 · 2026-10-12</span></div>
+<h3><a href="https://arxiv.org/abs/2610.17256v1" target="_blank" rel="noopener noreferrer">Does a Governed Confidence Score Know When a Text-to-SQL Answer Is Right? An Exploratory Study on BIRD and a Pre-registered Confirmation on Spider ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">研究主题：自然语言转 SQL，摘要提到 BIRD、Spider 评测。效果提升来自作者摘要，需核对基线、数据集与实验设置。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>Raghu Venkat、Tricha Anjali</span></div>
+<details><summary>查看论文摘要与作者</summary><p>Conversational analytics lets people ask questions of records spread across many systems and get answers in plain language; it is useful only if each answer can be trusted and explained. A production system of this kind attaches a confidence score to every answer it writes over a database and uses it to show the answer, show it with a warning, or withhold it. The score&#x27;s weights, caps and thresholds were set by design. This paper audits that design. On the 1,534 questions of BIRD dev, answered by GPT-5.1 with a benchmark-adapted production prompt and five samples per question, the designed score separates right from wrong answers weakly (AUROC 0.624, 95% CI 0.595-0.652) and withholds 35.7% of correct answers. Nearly all of its ranking signal comes from agreement among the samples, and most of it is lost where agreement is combined by a minimum with a checklist that drops to zero on any unsupported claim, including claims in commentary. We froze a rule in which agreement with the shown answer is the score and deterministic checks act as vetoes and caps, and pre-registered a test on Spider dev before any Spider answer existed. The primary hypothesis held: AUROC rose from 0.566 to 0.725 (paired difference +0.159, 95% CI +0.097 to +0.221), and correct answers withheld fell from 49.0% to 8.8% with PASS accuracy 95.7%. Under one matching policy the choice of agreement statistic matters little; the gain comes from how agreement enters the score. Whether added checks help depends on </p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">06</span><span class="source">论文 · 2026-10-10</span></div>
+<h3><a href="https://arxiv.org/abs/2610.14700v1" target="_blank" rel="noopener noreferrer">DSABench: Benchmarking Source Discovery, Coordination, and Execution for Multi-Database Agents ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">提出面向自然语言转 SQL的评测基准，摘要提到 BIRD、Spider 评测，用于识别现有系统的能力缺口。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>Jinlong Luo、Haoran Wu、Bo Xu</span></div>
+<details><summary>查看论文摘要与作者</summary><p>Most text-to-SQL benchmarks provide the target database. In a large data catalog, however, choosing the sources is part of the problem: an agent must find every database needed for a request, determine how their results fit together, and execute the resulting workflow. We present DSABench to evaluate these capabilities jointly. Its 815 human-reviewed tasks draw on Spider, BIRD, and LiveSQLBench; 618 require several databases to contribute, and 105 allow more than one interpretation of the required sources. Executable contracts define source participation, cross-source dependencies, and source-local execution, while RouteEnv lets agents inspect public catalog evidence without revealing the gold annotations. In our routing-only study across seven model backends, the highest RA-Set score is 60.55%, compared with a highest RA-Graph score of 34.66% when coordination requirements are included. The gap becomes more pronounced when execution is required. Across four backends, median non-privileged Route+Exec-Graph success ranges from 6.69% to 7.98% without clarification and from 11.44% to 13.25% with one clarification; the best observed clarified configuration reaches 16.99%. On ambiguous tasks, clarification improves exact branch-source recovery by 39.8-43.2 percentage points. These findings illustrate why retrieving plausible databases or producing correct local SQL is not enough: an agent must carry the right information through the entire multi-database workflow.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">07</span><span class="source">论文 · 2026-10-08</span></div>
+<h3><a href="https://arxiv.org/abs/2610.12274v3" target="_blank" rel="noopener noreferrer">HarnessSQL: Harness-Native Training for SQL Agents in Realistic Database Environments ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">研究主题：自然语言转 SQL，摘要提到 BIRD、Spider 2.0 评测。效果提升来自作者摘要，需核对基线、数据集与实验设置。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>Haolin Yang、Jipeng Zhang、Zhiqiang Qian、Jian Xie、Shuaishuai Gong、Yike Guo、Sirui Han</span></div>
+<details><summary>查看论文摘要与作者</summary><p>Text-to-SQL models are commonly trained to map questions directly to static queries, whereas real-world database agents operate through stateful, multi-turn interaction with live databases -- inspecting schemas, executing probe queries, diagnosing errors, and revising hypotheses. This creates a critical train-deploy mismatch, as the execution harness that mediates this interaction is introduced only at inference time. To bridge this gap, we propose HarnessSQL, a harness-native post-training framework that preserves the full interaction structure throughout both supervised fine-tuning and reinforcement learning. HarnessSQL builds isolated, executable database environments paired with hidden execution oracles, rolls out teachers directly inside the target SQL harness, and retains only verified trajectories for full-sequence SFT, followed by execution-reward RL. Across Spider 2.0-SQLite, HarnessSQL dramatically boosts the execution accuracy of compact models, raising Qwen3-8B from 15.5% to 45.2% and Qwen3-14B from 22.2% to 54.8%, while transferring effectively to out-of-distribution interactive benchmarks such as BIRD-Interact and LiveSQLBench. Our findings demonstrate that training database agents directly within their execution harness is essential for mastering complex, long-horizon database workflows.</p></details></article><article class="card compact" data-category="数据分析与产品" data-industry="数据产品">
+<div class="card-top"><span class="rank">08</span><span class="source">论文 · 2026-10-07</span></div>
+<h3><a href="https://arxiv.org/abs/2610.09396v2" target="_blank" rel="noopener noreferrer">ARCS: Towards Precise Text-to-SQL via Structured Disambiguation ↗</a></h3>
+<span class="age">最近采集 2026-10-17</span>
+<p class="intro">研究主题：自然语言转 SQL。效果提升来自作者摘要，需核对基线、数据集与实验设置。</p><div class="tags"><span>数据分析与产品</span><span>数据产品</span><span>Yihao Hu、Yanlin Feng、Naoki Otani、Nikita Bhutani</span></div>
+<details><summary>查看论文摘要与作者</summary><p>As text-to-SQL systems move beyond demonstrations toward real-world deployment, ambiguity in user questions becomes a primary source of errors. Such ambiguities are often subtle, domain- or data-specific, and can silently cause system outputs to deviate from the user&#x27;s true intent. Ambiguity is traditionally addressed through conversational clarification, which is often inefficient, cognitively demanding, and poorly aligned with real-world user workflows. We propose structured disambiguation, a new paradigm in which ambiguity is resolved through explicit, constrained interactions rather than free-form dialogue. We construct ARCS (Ambiguity Resolution Corpus for SQL), the first text-to-SQL benchmark featuring naturally occurring, unconstrained ambiguities over real-world databases, with complete annotations of all valid ambiguity points, interpretations, and SQL queries. Experimental results show that text-to-SQL remains challenging in the presence of ambiguity: gpt-6-sol achieves only 51% end-to-end execution accuracy, and no open-source model exceeds 27%.</p></details></article></div></section>
+<footer class="panel"><h2>来源与覆盖</h2><p>papers 25 · github_discovery 131 · github 461 · registry 159 · huggingface 80 · producthunt 40 · 论文来源 arxiv</p><ul><li>skills.sh 未启用或采集失败（凭据：VERCEL_OIDC_TOKEN）</li><li>Reddit 未启用或采集失败（凭据：RSS 或 OAuth）</li><li>reddit: HTTP Error 429: Too Many Requests</li><li>GitHub 运行反馈抽查未完成：API 限流或请求失败；配置 GITHUB_TOKEN 后可重试。</li></ul></footer>
+<p class="note">中文简介由公开元数据归纳，需打开原项目核对；30 天增长仅在保存足够久的同指标快照后显示。不同平台的热度指标不可直接互比。运行判断基于公开代码、安装资料和近期 Issue 抽样，不代表完整检查。</p></main>
+<script>const q=document.getElementById('search'),c=document.getElementById('category'),i=document.getElementById('industry');function filter(){for(const x of document.querySelectorAll('.card')){x.hidden=!!((q.value&&!x.textContent.toLowerCase().includes(q.value.toLowerCase()))||(c.value&&x.dataset.category!==c.value)||(i.value&&x.dataset.industry!==i.value));}}[q,c,i].forEach(x=>x.addEventListener('input',filter));</script></body></html>
