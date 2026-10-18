@@ -1,0 +1,46 @@
+name: AI Agent Radar · Mon Wed Sat
+
+on:
+  schedule:
+    # 09:17 Asia/Shanghai on Monday, Wednesday, and Saturday.
+    - cron: '17 1 * * 1,3,6'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agent-radar-scheduled
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Collect and write report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SKILLS_SH_TOKEN: ${{ secrets.SKILLS_SH_TOKEN }}
+          PRODUCT_HUNT_TOKEN: ${{ secrets.PRODUCT_HUNT_TOKEN }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ vars.REDDIT_USER_AGENT }}
+        run: python -m agent_radar --config config.json
+      - name: Commit database and report
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/radar.sqlite3 reports/*.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Update agent radar report"
+            git push
+          fi
+
